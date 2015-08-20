@@ -6,12 +6,15 @@
 makeCacheMatrix <- function(sqrMat = matrix()) {
         if (ncol(sqrMat)!=nrow(sqrMat)){
         message("getting cached data")
-        return(m)
+        return(0)
         }
-        data <- x$get()
-        m <- mean(data, ...)
-        x$setmean(m)
-        m
+        invMat <- NULL
+	get <- function() sqrMat
+	setInv <- function(solved) invMat <<- solved
+	getInv <- function() invMat
+	list(get = get, 
+		 setInv = setInv, 
+		 getInv = getInv)
 }
 
 
