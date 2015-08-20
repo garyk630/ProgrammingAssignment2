@@ -9,12 +9,18 @@ makeCacheMatrix <- function(sqrMat = matrix()) {
         return(m)
         }
         data <- x$get()
-        
+        m <- mean(data, ...)
+        x$setmean(m)
+        m
 }
 
 
 ## Write a short comment describing this function
 
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(cachedMat, ...) {
+        invMat <-cacheMat$getInv()
+        if (!is.null(invMat)){
+        message('Getting cached inversed Matrix!')
+        return(invMat)
         ## Return a matrix that is the inverse of 'x'
 }
