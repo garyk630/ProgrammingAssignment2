@@ -3,8 +3,13 @@
 
 ## Write a short comment describing this function
 
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix <- function(sqrMat = matrix()) {
+        if (ncol(sqrMat)!=nrow(sqrMat)){
+        message("getting cached data")
+        return(m)
+        }
+        data <- x$get()
+        
 }
 
 
