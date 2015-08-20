@@ -22,5 +22,10 @@ cacheSolve <- function(cachedMat, ...) {
         if (!is.null(invMat)){
         message('Getting cached inversed Matrix!')
         return(invMat)
+        }
+        sqrMat <- cachedMat$get()
+	invMat <- solve(sqrMat,...)
+	cachedMat$setInv(invMat)
+	return(invMat)
         ## Return a matrix that is the inverse of 'x'
 }
